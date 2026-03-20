@@ -1701,11 +1701,10 @@ def page_admin() -> None:
 # ────────────────────────────────────────────────────────────
 
 def ensure_db() -> None:
-    """Auto-initialise DB if it doesn't exist."""
     if not os.path.exists(DB_PATH):
         from database_init import init_db
         init_db()
-
+        print("[STARTUP] Database initialised fresh.")
 
 def main() -> None:
     ensure_db()
